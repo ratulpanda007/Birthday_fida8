@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Surprise 💗</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: "Trebuchet MS", sans-serif;
+    background:#fff8f1;
+    overflow:hidden;
+}
+
+/* Main screen */
+
+.screen{
+    width:100%;
+    height:100vh;
+    display:none;
+    position:relative;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+.screen.active{
+    display:flex;
+}
+
+/* Background stars */
+
+.star{
+    position:absolute;
+    font-size:25px;
+    animation:float 4s ease-in-out infinite;
+    opacity:.8;
+}
+
+.s1{top:10%;left:10%}
+.s2{top:20%;right:12%}
+.s3{top:45%;left:5%}
+.s4{bottom:20%;right:8%}
+.s5{bottom:10%;left:20%}
+.s6{top:65%;right:25%}
+.s7{top:30%;left:30%}
+.s8{bottom:30%;left:10%}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+
+    50%{
+        transform:translateY(-15px) rotate(15deg);
+    }
+}
+
+/* Content */
+
+.content{
+    width:90%;
+    max-width:500px;
+    z-index:5;
+}
+
+/* Text */
+
+.small-title{
+    font-size:18px;
+    letter-spacing:2px;
+    color:#555;
+    margin-bottom:15px;
+}
+
+.title{
+    font-size:48px;
+    font-weight:bold;
+    color:#e85d8b;
+    margin-bottom:20px;
+    animation:pop .8s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.message{
+    font-size:20px;
+    line-height:1.6;
+    color:#444;
+}
+
+/* Gift */
+
+.gift{
+    font-size:120px;
+    margin:20px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* Buttons */
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    margin-top:30px;
+}
+
+button{
+    border:none;
+    padding:14px 35px;
+    border-radius:30px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+    font-weight:bold;
+}
+
+.yes{
+    background:#ff719d;
+    color:white;
+}
+
+.no{
+    background:#ddd;
+    color:#555;
+}
+
+button:hover{
+    transform:scale(1.1);
+}
+
+/* Photo */
+
+.photo{
+    width:270px;
+    height:300px;
+    object-fit:cover;
+    border-radius:15px;
+    padding:8px;
+    background:white;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    transform:rotate(-3deg);
+    margin:20px auto;
+}
+
+.photo2{
+    transform:rotate(3deg);
+}
+
+/* Birthday lettering */
+
+.birthday{
+    font-size:55px;
+    font-weight:bold;
+    letter-spacing:5px;
+    color:#e65f8d;
+    text-shadow:
+        2px 2px #ffd166,
+        4px 4px #9ad1d4;
+}
+
+/* Next button */
+
+.next{
+    background:#222;
+    color:white;
+    padding:12px 28px;
+    border-radius:50px;
+}
+
+/* Hearts */
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:25px;
+    animation:heartUp 5s linear forwards;
+}
+
+@keyframes heartUp{
+
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh) scale(1.3);
+        opacity:0;
+    }
+}
+
+/* Final page */
+
+.final-title{
+    font-size:60px;
+    color:#ff5c8a;
+}
+
+.final-message{
+    font-size:22px;
+    line-height:1.7;
+    margin:20px 0;
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .title{
+        font-size:38px;
+    }
+
+    .birthday{
+        font-size:40px;
+    }
+
+    .gift{
+        font-size:90px;
+    }
+
+    .photo{
+        width:220px;
+        height:250px;
+    }
+
+    .message{
+        font-size:18px;
+    }
+
+    .final-title{
+        font-size:45px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ================= PAGE 1 ================= -->
+
+<section class="screen active" id="page1">
+
+    <span class="star s1">⭐</span>
+    <span class="star s2">🌟</span>
+    <span class="star s3">⭐</span>
+    <span class="star s4">✨</span>
+    <span class="star s5">🌸</span>
+    <span class="star s6">⭐</span>
+    <span class="star s7">✨</span>
+    <span class="star s8">🌟</span>
+
+    <div class="content">
+
+        <div class="small-title">
+            I MADE YOU A SURPRISE 💌
+        </div>
+
+        <h1 class="title">
+            Do you wanna see? 🥺
+        </h1>
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <div class="buttons">
+
+            <button class="yes" onclick="nextPage(2)">
+                YES 💗
+            </button>
+
+            <button class="no" onclick="noButton()">
+                NO 😭
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PAGE 2 ================= -->
+
+<section class="screen" id="page2">
+
+    <span class="star s1">⭐</span>
+    <span class="star s2">🌸</span>
+    <span class="star s3">✨</span>
+    <span class="star s4">⭐</span>
+
+    <div class="content">
+
+        <div class="small-title">
+            SOMETHING SPECIAL FOR YOU
+        </div>
+
+        <h1 class="birthday">
+            HAPPY
+        </h1>
+
+        <img
+            src="images/photo1.jpg"
+            class="photo"
+            alt="Your photo"
+        >
+
+        <h1 class="birthday">
+            BIRTHDAY
+        </h1>
+
+        <button class="next" onclick="nextPage(3)">
+            ➜
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PAGE 3 ================= -->
+
+<section class="screen" id="page3">
+
+    <span class="star s1">🌟</span>
+    <span class="star s2">⭐</span>
+    <span class="star s3">✨</span>
+    <span class="star s4">🌸</span>
+
+    <div class="content">
+
+        <h1 class="title">
+            A little memory 💗
+        </h1>
+
+        <img
+            src="images/photo2.jpg"
+            class="photo photo2"
+            alt="Memory"
+        >
+
+        <p class="message">
+            Every moment with you becomes
+            a beautiful memory that I want
+            to keep forever. 🥹❤️
+        </p>
+
+        <br>
+
+        <button class="next" onclick="nextPage(4)">
+            NEXT →
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PAGE 4 ================= -->
+
+<section class="screen" id="page4">
+
+    <span class="star s1">⭐</span>
+    <span class="star s2">✨</span>
+    <span class="star s3">🌸</span>
+    <span class="star s4">🌟</span>
+
+    <div class="content">
+
+        <h1 class="title">
+            ENJOY YOUR DAY 🎂
+        </h1>
+
+        <img
+            src="images/photo3.jpg"
+            class="photo"
+            alt="Birthday photo"
+        >
+
+        <p class="message">
+            Today is all about you.
+            Smile a little more,
+            laugh a little louder
+            and enjoy every second. 💕
+        </p>
+
+        <br>
+
+        <button class="next" onclick="nextPage(5)">
+            ONE MORE THING 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PAGE 5 ================= -->
+
+<section class="screen" id="page5">
+
+    <span class="star s1">💗</span>
+    <span class="star s2">⭐</span>
+    <span class="star s3">💕</span>
+    <span class="star s4">✨</span>
+
+    <div class="content">
+
+        <h1 class="title">
+            My Birthday Wish For You
+        </h1>
+
+        <p class="final-message">
+
+            May you always be happy. 🌸<br>
+
+            May all your dreams come true. ✨<br>
+
+            May you always have reasons to smile. ❤️<br>
+
+            And may this year be your
+            most beautiful year yet. 🥹
+
+        </p>
+
+        <button class="next" onclick="nextPage(6)">
+            FINAL SURPRISE 🎁
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PAGE 6 ================= -->
+
+<section class="screen" id="page6">
+
+    <span class="star s1">💖</span>
+    <span class="star s2">✨</span>
+    <span class="star s3">💗</span>
+    <span class="star s4">🌟</span>
+
+    <div class="content">
+
+        <div class="gift">
+            🎂
+        </div>
+
+        <h1 class="final-title">
+            HAPPY BIRTHDAY!
+        </h1>
+
+        <p class="final-message">
+
+            To the most special person,
+            <br><br>
+
+            I hope this little surprise
+            made you smile. 🥺❤️
+
+            <br><br>
+
+            You deserve all the happiness
+            in the world. 🌎💕
+
+        </p>
+
+        <button class="next" onclick="restart()">
+            ↻ WATCH AGAIN
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* Change page */
+
+function nextPage(pageNumber){
+
+    document.querySelectorAll(".screen").forEach(function(page){
+
+        page.classList.remove("active");
+
+    });
+
+    document.getElementById("page" + pageNumber)
+        .classList.add("active");
+
+    createHearts();
+
+}
+
+
+/* NO button */
+
+function noButton(){
+
+    alert("Nice try 😭 You HAVE to see it! ❤️");
+
+}
+
+
+/* Restart */
+
+function restart(){
+
+    nextPage(1);
+
+}
+
+
+/* Floating hearts */
+
+function createHearts(){
+
+    for(let i = 0; i < 12; i++){
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML =
+            ["❤️","💗","💕","💖","💓"][Math.floor(Math.random()*5)];
+
+        heart.style.left =
+            Math.random()*100 + "%";
+
+        heart.style.animationDuration =
+            (3 + Math.random()*3) + "s";
+
+        heart.style.fontSize =
+            (18 + Math.random()*20) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+
+            heart.remove();
+
+        },6000);
+
+    }
+
+}
+
+
+/* Create some hearts automatically */
+
+setInterval(function(){
+
+    if(document.querySelector(".screen.active")){
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML = "💗";
+
+        heart.style.left =
+            Math.random()*100 + "%";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+
+            heart.remove();
+
+        },5000);
+
+    }
+
+},1200);
+
+</script>
+
+</body>
+</html>
